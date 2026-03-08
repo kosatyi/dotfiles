@@ -1,13 +1,10 @@
 return {
   {
     "nvim-treesitter/nvim-treesitter",
-    opts = {
-      ensure_installed = {
-        "nunjucks",
-        "html",
-        "css",
-      },
-      highlight = { enable = true },
-    },
-  }
+    opts = function(_, opts)
+      if type(opts.ensure_installed) == "table" then
+        vim.list_extend(opts.ensure_installed, { "html", "jinja2" })
+      end
+    end,
+  },
 }
