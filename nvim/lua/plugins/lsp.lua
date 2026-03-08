@@ -2,17 +2,19 @@ return {
   {
     "neovim/nvim-lspconfig",
     opts = {
-      -- LazyVim автоматично встановить ці сервери через Mason
       servers = {
-        jinja_lsp = {
-          filetypes = { "jinja", "jinja2", "html", "nunjucks", "njk" },
-        },
-        html = {
-          filetypes = { "html", "nunjucks", "njk" },
-        },
-        tailwindcss = {
-          filetypes = { "html", "nunjucks", "njk" },
-        },
+        jinja_lsp = {},
+        html = {},
+      },
+      setup = {
+        jinja_lsp = function(_, opts)
+          opts.filetypes = opts.filetypes or {}
+          vim.list_extend(opts.filetypes, { "nunjucks", "njk" })
+        end,
+        html = function(_, opts)
+          opts.filetypes = opts.filetypes or {}
+          vim.list_extend(opts.filetypes, { "nunjucks", "njk" })
+        end,
       },
     },
   },
