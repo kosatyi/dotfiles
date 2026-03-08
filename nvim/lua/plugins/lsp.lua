@@ -1,21 +1,21 @@
-return {
-  {
-    "neovim/nvim-lspconfig",
-    opts = {
-      servers = {
-        jinja_lsp = {},
-        html = {},
-      },
-      setup = {
-        jinja_lsp = function(_, opts)
-          opts.filetypes = opts.filetypes or {}
-          vim.list_extend(opts.filetypes, { "nunjucks", "njk" })
-        end,
-        html = function(_, opts)
-          opts.filetypes = opts.filetypes or {}
-          vim.list_extend(opts.filetypes, { "nunjucks", "njk" })
-        end,
-      },
-    },
-  },
-}
+--return {
+--  {
+--    "neovim/nvim-lspconfig",
+--    opts = {
+--      servers = {
+--        jinja_lsp = {},
+--        html = {},
+--      },
+--      setup = {
+--        jinja_lsp = function(_, opts)
+--          opts.filetypes = opts.filetypes or {}
+--          vim.list_extend(opts.filetypes, { "nunjucks", "njk" })
+--        end,
+--        html = function(_, opts)
+--          opts.filetypes = opts.filetypes or {}
+--          vim.list_extend(opts.filetypes, { "nunjucks", "njk" })
+--        end,
+--      },
+--    },
+--  },
+--}
