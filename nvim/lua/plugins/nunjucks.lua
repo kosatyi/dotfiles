@@ -17,16 +17,6 @@ return {
         html = {
           filetypes = { "html", "nunjucks", "njk" },
         },
-        tailwindcss = {
-          filetypes = { "nunjucks", "njk" },
-          settings = {
-            tailwindCSS = {
-              includeLanguages = {
-                nunjucks = "html",
-              },
-            },
-          },
-        },
       },
     },
   },
@@ -39,7 +29,7 @@ return {
     },
   },
   {
-    "williamboman/mason.nvim",
+    "mason-org/mason.nvim",
     opts = function(_, opts)
       opts.ensure_installed = opts.ensure_installed or {}
       vim.list_extend(opts.ensure_installed, { "djlint", "jinja-lsp" })
