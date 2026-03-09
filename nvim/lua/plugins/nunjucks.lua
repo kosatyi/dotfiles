@@ -10,6 +10,9 @@ return {
   {
     "neovim/nvim-lspconfig",
     opts = {
+      diagnostics = {
+        virtual_text = false,
+      },
       servers = {
         jinja_lsp = {
           filetypes = { "nunjucks", "njk", "htmldjango" },
