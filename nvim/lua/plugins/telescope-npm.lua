@@ -8,10 +8,15 @@ return {
     local telescope = require("telescope")
     telescope.setup({
       extensions = {
-        npm = {},
+        npm = {
+          -- Використовуємо термінал замість дефолтного виводу,
+          -- щоб уникнути конфліктів з notification-плагінами
+          terminal = "split", -- або "vsplit" / "tab"
+        },
       },
     })
     telescope.load_extension("npm")
     vim.keymap.set("n", "<leader>ns", ":Telescope npm scripts<CR>", { desc = "NPM Scripts" })
+    vim.keymap.set("n", "<leader>nr", "@:", { desc = "Rerun last command" })
   end,
 }
