@@ -29,7 +29,7 @@ fi
 # Move files
 mkdir -p "$HOME/.config"
 cp -r "$SOURCE_NVIM_DIR" "$NVIM_CONFIG_DIR"
-
+rm -rf "$NVIM_CONFIG_DIR/.git"
 if [ $? -eq 0 ]; then
   echo "Files successfully copied to $NVIM_CONFIG_DIR"
   # Optional: Clean up the temporary directory
