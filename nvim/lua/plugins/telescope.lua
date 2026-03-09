@@ -11,7 +11,7 @@ return {
         "--column",
         "--smart-case",
         "--glob",
-        "!node_modules/*", -- явне ігнорування для ripgrep
+        "!node_modules/*",
       },
     },
     pickers = {
@@ -31,7 +31,7 @@ return {
         "<leader>zz",
         function()
           require("telescope.builtin").find_files({
-            cwd = vim.fn.expand("%:p:h"), -- Шлях до папки поточного файлу
+            cwd = vim.fn.expand("%:p:h"),
           })
         end,
         desc = "Find Files (Current Buffer Dir)",

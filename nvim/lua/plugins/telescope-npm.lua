@@ -2,7 +2,7 @@ return {
   "nvim-telescope/telescope.nvim",
   dependencies = {
     "nvim-lua/plenary.nvim",
-    "elianiva/telescope-npm.nvim", -- Додаємо npm плагін як залежність
+    "elianiva/telescope-npm.nvim",
   },
   config = function()
     local telescope = require("telescope")
