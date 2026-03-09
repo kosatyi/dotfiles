@@ -9,9 +9,7 @@ return {
     telescope.setup({
       extensions = {
         npm = {
-          -- Використовуємо термінал замість дефолтного виводу,
-          -- щоб уникнути конфліктів з notification-плагінами
-          terminal = "split", -- або "vsplit" / "tab"
+          terminal = "split",
         },
       },
     })
