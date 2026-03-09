@@ -3,6 +3,11 @@
 -- Add any additional options here
 --
 
+vim.diagnostic.config({
+  virtual_text = false,
+  signs = true,
+  underline = true,
+})
 
 vim.filetype.add({
   extension = {
