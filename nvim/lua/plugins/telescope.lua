@@ -1,6 +1,10 @@
 return {
   {
     "nvim-telescope/telescope.nvim",
+    dependencies = {
+      "nvim-lua/plenary.nvim",
+      "elianiva/telescope-npm.nvim",
+    },
     defaults = {
       vimgrep_arguments = {
         "rg",
@@ -20,8 +24,11 @@ return {
       },
     },
     keys = {
-      -- add a keymap to browse plugin files
-      -- stylua: ignore
+      {
+        "<leader>zn",
+        "<cmd>Telescope npm scripts<cr>",
+        desc = "NPM Scripts",
+      },
       {
         "<leader>zc",
         function() require("telescope.builtin").find_files({ cwd = require("lazy.core.config").options.root }) end,
