@@ -14,7 +14,7 @@ return {
       },
     })
     telescope.load_extension("npm")
-    vim.keymap.set("n", "<leader>ns", ":Telescope npm scripts<CR>", { desc = "NPM Scripts" })
-    vim.keymap.set("n", "<leader>nr", "@:", { desc = "Rerun last command" })
+    vim.keymap.set("n", "<leader>./", ":Telescope npm scripts<CR>", { desc = "NPM Scripts" })
+    vim.keymap.set("n", "<leader>,.", "@:", { desc = "Rerun last command" })
   end,
 }
