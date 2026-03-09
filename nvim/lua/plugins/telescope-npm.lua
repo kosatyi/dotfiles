@@ -1,14 +1,17 @@
 return {
   "nvim-telescope/telescope.nvim",
   dependencies = {
-    {
-      "elianiva/telescope-npm.nvim",
-      config = function()
-        require("telescope").load_extension("npm")
-      end,
-    },
+    "nvim-lua/plenary.nvim",
+    "elianiva/telescope-npm.nvim", -- Додаємо npm плагін як залежність
   },
-  keys = {
-    { "<leader>ns", "<cmd>Telescope npm scripts<cr>", desc = "NPM Scripts" },
-  },
+  config = function()
+    local telescope = require("telescope")
+    telescope.setup({
+      extensions = {
+        npm = {},
+      },
+    })
+    telescope.load_extension("npm")
+    vim.keymap.set("n", "<leader>ns", ":Telescope npm scripts<CR>", { desc = "NPM Scripts" })
+  end,
 }
