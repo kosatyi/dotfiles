@@ -34,14 +34,23 @@ return {
               { win = "input", height = 1,        border = "rounded", title = " Project Explorer ", title_pos = "center" },
             },
           },
-        },
-        win = {
-          input = {
-            keys = {
-              ["<PageUp>"] = { "list_scroll_up", mode = { "i", "n" } },
-              ["<PageDown>"] = { "list_scroll_down", mode = { "i", "n" } },
-              ["<Home>"] = { "list_top", mode = { "i", "n" } },
-              ["<End>"] = { "list_bottom", mode = { "i", "n" } },
+          actions = {
+            confirm = function(picker, item)
+              picker:close()
+              if item then
+                vim.cmd("edit " .. item.file)
+              end
+            end,
+          },
+          win = {
+            input = {
+              keys = {
+                ["<PageUp>"] = { "list_scroll_up", mode = { "i", "n" } },
+                ["<PageDown>"] = { "list_scroll_down", mode = { "i", "n" } },
+                ["<Home>"] = { "list_top", mode = { "i", "n" } },
+                ["<End>"] = { "list_bottom", mode = { "i", "n" } },
+                ["<Esc>"] = { "close", mode = { "i", "n" } },
+              },
             },
           },
         },
