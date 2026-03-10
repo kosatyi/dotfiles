@@ -23,9 +23,7 @@ return {
       sources = {
         explorer = {
           focus = "input",
-          actions = {
-            ["confirm"] = { "confirm", "close" },
-          },
+          auto_close = true,
           layout = {
             preview = false,
             layout = {
