@@ -8,3 +8,13 @@
 -- e.g. vim.api.nvim_del_augroup_by_name("lazyvim_wrap_spell")
 --
 
+-- Prevent from cursor moved above center of screen
+vim.api.nvim_create_autocmd("CursorMoved", {
+  callback = function()
+    local last_line = vim.fn.line("$")
+    local current_line = vim.fn.line(".")
+    if current_line == last_line then
+      vim.cmd("normal! zb")
+    end
+  end,
+})
