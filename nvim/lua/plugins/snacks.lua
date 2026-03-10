@@ -22,6 +22,10 @@ return {
     picker = {
       sources = {
         explorer = {
+          focus = "input",
+          actions = {
+            ["confirm"] = { "confirm", "close" },
+          },
           layout = {
             preview = false,
             layout = {
@@ -32,10 +36,6 @@ return {
               { win = "input", height = 1,        border = "rounded", title = " Project Explorer ", title_pos = "center" },
             },
           },
-          actions = {
-            ["confirm"] = { "confirm", "close" },
-          },
-          focus = "input",
         },
         win = {
           input = {
