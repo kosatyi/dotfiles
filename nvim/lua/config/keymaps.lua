@@ -6,17 +6,9 @@
 local keymap = vim.keymap.set
 local opts = { noremap = true, silent = true }
 
--- PREVENT SCROLL BLANK SCREEN
-local keys = { "<PageUp>", "<PageDown>", "<C-f>", "<C-b>", "<C-d>", "<C-u>" }
-for _, key in ipairs(keys) do
-  keymap("n", key, key .. "zz", opts)
-end
-
 -- MOVE BETWEEN BUFFERS
 keymap({ "n", "v" }, "<A-Right>", ":bnext<CR>", opts)
 keymap({ "n", "v" }, "<A-Left>", ":bprev<CR>", opts)
-
-
 
 -- SAVE FILE (Ctrl + S)
 -- Save in Normal mode
