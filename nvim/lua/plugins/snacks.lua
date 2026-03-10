@@ -26,11 +26,11 @@ return {
             patterns = { ".git", "package.json" },
           },
           layout = {
-            preset = "sidebar",
-            layout = {
-              position = "left",
-              width = 30,
-            },
+            preset = "float",
+            --layout = {
+            --  position = "left",
+            --  width = 30,
+            --},
           },
         },
       },
