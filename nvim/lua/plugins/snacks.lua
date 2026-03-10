@@ -32,6 +32,9 @@ return {
               { win = "input", height = 1,        border = "rounded", title = " Project Explorer ", title_pos = "center" },
             },
           },
+          actions = {
+            ["confirm"] = { "confirm", "close" },
+          },
           focus = "input",
         },
         win = {
