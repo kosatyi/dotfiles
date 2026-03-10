@@ -11,10 +11,13 @@
 -- Prevent from cursor moved above center of screen
 vim.api.nvim_create_autocmd("CursorMoved", {
   callback = function()
+    local win_height = vim.api.nvim_win_get_height(0)
     local last_line = vim.fn.line("$")
     local current_line = vim.fn.line(".")
-    if current_line == last_line then
-      vim.cmd("normal! zb")
+    local distance_to_end = last_line - current_line
+    local half_screen = math.floor(win_height / 2)
+    if distance_to_end >= half_screen then
+      vim.cmd("normal! zz")
     end
   end,
 })
