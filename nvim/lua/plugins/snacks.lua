@@ -23,10 +23,13 @@ return {
       sources = {
         explorer = {
           layout = {
+            preview = false,
             layout = {
               box = "vertical",
-              { win = "list",  border = "none" },
-              { win = "input", border = "top", title = "{title} {live}{flags}" },
+              width = 0.5,
+              height = 0.6,
+              { win = "list",  border = "rounded" },
+              { win = "input", border = "rounded", title = " Search ", title_pos = "center" },
             },
           },
         },
