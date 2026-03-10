@@ -6,7 +6,7 @@ return {
     bigfile = { enabled = true },
     dashboard = {
       preset = {
-                header = [[
+        header = [[
 ███╗   ██╗██╗   ██╗██╗███╗   ███╗
 ████╗  ██║██║   ██║██║████╗ ████║
 ██╔██╗ ██║██║   ██║██║██╔████╔██║
@@ -22,10 +22,13 @@ return {
     picker = {
       sources = {
         explorer = {
-          projects = {
-            patterns = { ".git", "package.json" },
+          layout = {
+            layout = {
+              box = "vertical",
+              { win = "list",  border = "none" },
+              { win = "input", border = "top", title = "{title} {live}{flags}" },
+            },
           },
-          layout = { preset = "default", preview = false },
         },
       },
     },
