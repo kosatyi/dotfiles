@@ -26,10 +26,10 @@ return {
             preview = false,
             layout = {
               box = "vertical",
-              width = 0.5,
-              height = 0.6,
+              --width = 0.5,
+              --height = 0.6,
               { win = "list",  border = "rounded" },
-              { win = "input", height = 1,        border = "rounded", title = " Search ", title_pos = "center" },
+              { win = "input", height = 1,   border = "rounded", title = " Project Explorer ", title_pos = "center" },
             },
           },
           focus = "input",
