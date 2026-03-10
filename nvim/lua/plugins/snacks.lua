@@ -25,13 +25,7 @@ return {
           projects = {
             patterns = { ".git", "package.json" },
           },
-          layout = {
-            preset = "float",
-            --layout = {
-            --  position = "left",
-            --  width = 30,
-            --},
-          },
+          layout = { preset = "default", preview = false },
         },
       },
     },
