@@ -3,7 +3,7 @@
 -- Add any additional options here
 --
 
-vim.opt.scrolloff = 0
+vim.opt.scrolloff = 999
 vim.opt.virtualedit = ""
 
 vim.diagnostic.config({
