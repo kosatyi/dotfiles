@@ -5,8 +5,9 @@ return {
     "nvim-telescope/telescope-project.nvim",
     "vinnymeller/telescope-npm.nvim",
   },
+
   keys = {
-    { "<leader>zp", "<cmd>Telescope project<cr>",     desc = "Projects" },
+    { "<leader>zp", "<cmd>Telescope project<cr>", desc = "Projects" },
     { "<leader>zn", "<cmd>Telescope npm scripts<cr>", desc = "NPM Scripts" },
     {
       "<leader>zz",
@@ -17,7 +18,13 @@ return {
     },
   },
   opts = {
-    defaults = {},
+    defaults = {
+      file_ignore_patterns = {
+        "%.git/",
+        "node_modules/",
+        "%.%w+/",
+      },
+    },
     pickers = {
       find_files = {
         hidden = true,
