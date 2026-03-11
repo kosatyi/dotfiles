@@ -11,14 +11,15 @@ return {
     {
       "<leader>zn",
       function()
-        local ok = pcall(require("telescope").load_extension, "npm")
-        if ok then
+        local path = vim.fn.getcwd() .. "/package.json"
+        if vim.fn.filereadable(path) == 1 then
+          require("telescope").load_extension("npm")
           vim.cmd("Telescope npm scripts")
         else
-          vim.notify("NPM extension failed (maybe no package.json?)", vim.log.levels.WARN)
+          vim.notify("package.json не знайдено в цій директорії", vim.log.levels.WARN)
         end
       end,
-      desc = "NPM Scripts"
+      desc = "NPM Scripts",
     },
     {
       "<leader>zz",
@@ -52,8 +53,5 @@ return {
     local telescope = require("telescope")
     telescope.setup(opts)
     pcall(telescope.load_extension, "project")
-    if vim.fn.filereadable("package.json") == 1 then
-      pcall(telescope.load_extension, "npm")
-    end
   end,
 }
