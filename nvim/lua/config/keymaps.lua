@@ -43,8 +43,10 @@ keymap("v", "<S-Down>", "<Down>", opts)
 -- HOME/END SELECTION (Shift + Home/End)
 keymap("n", "<S-End>", "v$", opts)
 keymap("n", "<S-Home>", "v^", opts)
-keymap("i", "<S-End>", "<C-o>v$", opts)
-keymap("i", "<S-Home>", "<C-o>v^", opts)
+
+keymap("i", "<S-End>", "<Esc>v$", opts)
+keymap("i", "<S-Home>", "<Esc>v^", opts)
+
 keymap("v", "<S-End>", "$", opts)
 keymap("v", "<S-Home>", "^", opts)
 
