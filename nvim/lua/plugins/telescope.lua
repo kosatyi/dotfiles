@@ -16,7 +16,7 @@ return {
           require("telescope").load_extension("npm")
           vim.cmd("Telescope npm scripts")
         else
-          vim.notify("package.json не знайдено в цій директорії", vim.log.levels.WARN)
+          vim.notify("package.json not found", vim.log.levels.WARN)
         end
       end,
       desc = "NPM Scripts",
