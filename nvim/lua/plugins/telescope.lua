@@ -3,7 +3,8 @@ return {
     "nvim-telescope/telescope.nvim",
     dependencies = {
       "nvim-lua/plenary.nvim",
-      "elianiva/telescope-npm.nvim",
+      "nvim-telescope/telescope-project.nvim",
+      "vinnymeller/telescope-npm.nvim",
     },
     defaults = {
       vimgrep_arguments = {
@@ -24,16 +25,8 @@ return {
       },
     },
     keys = {
-      {
-        "<leader>zn",
-        "<cmd>Telescope npm scripts<cr>",
-        desc = "NPM Scripts",
-      },
-      {
-        "<leader>zc",
-        function() require("telescope.builtin").find_files({ cwd = require("lazy.core.config").options.root }) end,
-        desc = "Find Plugin File",
-      },
+      { "<leader>zp", "<cmd>Telescope project<cr>",     desc = "Projects" },
+      { "<leader>zn", "<cmd>Telescope npm scripts<cr>", desc = "NPM Scripts" },
       {
         "<leader>zz",
         function()
@@ -44,5 +37,20 @@ return {
         desc = "Find Files (Current Buffer Dir)",
       },
     },
+    opts = function(_, opts)
+      local telescope = require("telescope")
+      telescope.load_extension("project")
+      telescope.load_extension("npm")
+      opts.extensions = {
+        project = {
+          base_dirs = {
+            { "~/flitt/projects", max_depth = 1 },
+            { "~/projects", max_depth = 1 },
+            { "~/www",      max_depth = 1 },
+          },
+          hidden_files = true, -- показувати .git, .env тощо
+        },
+      }
+    end,
   }
 }
