@@ -3,11 +3,9 @@ keybind = ctrl+alt+right=goto_split:right
 keybind = ctrl+alt+up=goto_split:up
 keybind = ctrl+alt+down=goto_split:down
 
-fullscreen = true
-window-save-state = always
-
-background-opacity = 0.85
+background-opacity = 0.90
 background-blur-radius = 20
+maximize = true
 
 window-padding-color = extend-always
 window-padding-balance = true
