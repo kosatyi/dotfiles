@@ -3,9 +3,6 @@
 -- Add any additional options here
 --
 
---vim.opt.scrolloff = 999
---vim.opt.virtualedit = ""
-
 vim.diagnostic.config({
   virtual_text = false,
   signs = true,
