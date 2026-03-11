@@ -13,19 +13,14 @@ return {
       function()
         require("telescope.builtin").find_files({ cwd = vim.fn.expand("%:p:h") })
       end,
-      desc = "Find Files (Buffer Dir)",
+      desc = "Find Files (Dir)",
     },
   },
   opts = {
-    defaults = {
-      vimgrep_arguments = {
-        "rg", "--color=never", "--no-heading", "--with-filename",
-        "--line-number", "--column", "--smart-case", "--glob", "!node_modules/*",
-      },
-    },
+    defaults = {},
     pickers = {
       find_files = {
-        find_command = { "fd", "--type", "f", "--strip-cwd-prefix", "--exclude", "node_modules", "--hidden" },
+        hidden = true,
       },
     },
     extensions = {
