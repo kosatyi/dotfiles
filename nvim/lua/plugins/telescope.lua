@@ -7,7 +7,7 @@ return {
   },
 
   keys = {
-    { "<leader>zp", "<cmd>Telescope project<cr>", desc = "Projects" },
+    { "<leader>zp", "<cmd>Telescope project<cr>",     desc = "Projects" },
     { "<leader>zn", "<cmd>Telescope npm scripts<cr>", desc = "NPM Scripts" },
     {
       "<leader>zz",
@@ -40,7 +40,9 @@ return {
   config = function(_, opts)
     local telescope = require("telescope")
     telescope.setup(opts)
-    telescope.load_extension("project")
-    telescope.load_extension("npm")
+    pcall(telescope.load_extension, "project")
+    if vim.fn.filereadable("package.json") == 1 then
+      pcall(telescope.load_extension, "npm")
+    end
   end,
 }
