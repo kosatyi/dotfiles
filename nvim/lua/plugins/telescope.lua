@@ -7,8 +7,19 @@ return {
   },
 
   keys = {
-    { "<leader>zp", "<cmd>Telescope project<cr>",     desc = "Projects" },
-    { "<leader>zn", "<cmd>Telescope npm scripts<cr>", desc = "NPM Scripts" },
+    { "<leader>zp", "<cmd>Telescope project<cr>", desc = "Projects" },
+    {
+      "<leader>zn",
+      function()
+        local ok = pcall(require("telescope").load_extension, "npm")
+        if ok then
+          vim.cmd("Telescope npm scripts")
+        else
+          vim.notify("NPM extension failed (maybe no package.json?)", vim.log.levels.WARN)
+        end
+      end,
+      desc = "NPM Scripts"
+    },
     {
       "<leader>zz",
       function()
