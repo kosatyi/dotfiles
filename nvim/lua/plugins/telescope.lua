@@ -18,6 +18,7 @@ return {
   },
   opts = {
     defaults = {
+      -- vimgrep використовується для live_grep
       vimgrep_arguments = {
         "rg", "--color=never", "--no-heading", "--with-filename",
         "--line-number", "--column", "--smart-case", "--glob", "!node_modules/*",
@@ -25,12 +26,13 @@ return {
     },
     pickers = {
       find_files = {
-        find_command = { "fd", "--type", "f", "--strip-cwd-prefix", "--exclude", "node_modules" },
+        -- ОСНОВНЕ ВИПРАВЛЕННЯ: переконайтеся, що fd встановлено в системі
+        find_command = { "fd", "--type", "f", "--strip-cwd-prefix", "--exclude", "node_modules", "--hidden" },
       },
     },
     extensions = {
       project = {
-        base_dirs = { "~/flitt/project", "~/project", "~/projects", "~/www" },
+        base_dirs = { "~/flitt/projects", "~/projects", "~/www" },
         hidden_files = true,
       },
     },
