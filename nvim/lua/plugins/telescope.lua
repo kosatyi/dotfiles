@@ -18,7 +18,6 @@ return {
   },
   opts = {
     defaults = {
-      -- vimgrep використовується для live_grep
       vimgrep_arguments = {
         "rg", "--color=never", "--no-heading", "--with-filename",
         "--line-number", "--column", "--smart-case", "--glob", "!node_modules/*",
@@ -26,7 +25,6 @@ return {
     },
     pickers = {
       find_files = {
-        -- ОСНОВНЕ ВИПРАВЛЕННЯ: переконайтеся, що fd встановлено в системі
         find_command = { "fd", "--type", "f", "--strip-cwd-prefix", "--exclude", "node_modules", "--hidden" },
       },
     },
