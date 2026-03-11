@@ -44,9 +44,9 @@ return {
       opts.extensions = {
         project = {
           base_dirs = {
-            { "~/flitt/projects", max_depth = 1 },
-            { "~/projects", max_depth = 1 },
-            { "~/www",      max_depth = 1 },
+            { "~/flitt/projects" },
+            { "~/projects" },
+            { "~/www" },
           },
           hidden_files = true, -- показувати .git, .env тощо
         },
