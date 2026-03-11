@@ -30,7 +30,7 @@ return {
     },
     extensions = {
       project = {
-        base_dirs = { "~/flitt/projects", "~/projects", "~/www" },
+        base_dirs = { "~/flitt/project", "~/project", "~/projects", "~/www" },
         hidden_files = true,
       },
     },
