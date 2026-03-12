@@ -11,7 +11,7 @@ return {
     { "<leader>qS", function() require("persistence").select() end, desc = "Select Session" },
     { "<leader>ql", function() require("persistence").load({ last = true }) end, desc = "Restore Last Session" },
     { "<leader>qd", function() require("persistence").stop() end, desc = "Don't Save Current Session" },
-     "<leader>qX", function()
+     {"<leader>qX", function()
         local session_file = require("persistence").current()
         if session_file then
             os.remove(session_file)
@@ -21,5 +21,6 @@ return {
         end
     end,
     desc = "Delete Current Session",
-  },
+    },
+    }
 }
