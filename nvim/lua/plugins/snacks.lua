@@ -45,7 +45,7 @@ return {
         },
       },
     },
-    notifier = { enabled = false },
+    notifier = { enabled = true },
     quickfile = { enabled = true },
     scope = { enabled = true },
     scroll = { enabled = false },
