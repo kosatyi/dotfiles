@@ -3,7 +3,7 @@ return {
   dependencies = {
     "nvim-lua/plenary.nvim",
     "nvim-telescope/telescope-project.nvim",
-    "vinnymeller/telescope-npm.nvim",
+    "elianiva/telescope-npm.nvim",
   },
 
   keys = {
