@@ -7,8 +7,9 @@ local keymap = vim.keymap.set
 local opts = { noremap = true, silent = true }
 
 -- MOVE BETWEEN BUFFERS
-keymap({ "n", "v" }, "<A-Right>", ":bnext<CR>", opts)
-keymap({ "n", "v" }, "<A-Left>", ":bprev<CR>", opts)
+keymap({ "n", "v", "i" }, "<A-Right>", ":bnext<CR>", opts)
+keymap({ "n", "v", "i" }, "<A-Left>", ":bprev<CR>", opts)
+keymap({ "n", "v", "i" }, '<A-q>', ':bd<CR>', opts)
 
 -- SAVE FILE (Ctrl + S)
 -- Save in Normal mode
@@ -21,13 +22,12 @@ keymap("v", "<C-s>", "<Esc><cmd>w<CR>gv", { desc = "Save file and keep selection
 -- SELECT ALL (Ctrl + A)
 keymap({ "n", "i", "v" }, "<C-a>", "<Esc>ggVG", { desc = "Select all text" })
 
--- VS CODE STYLE SELECTION (Shift + Arrows)
+-- CODE STYLE SELECTION (Shift + Arrows)
 -- From Normal Mode
 keymap("n", "<S-Left>", "v<Left>", opts)
 keymap("n", "<S-Right>", "v<Right>", opts)
 keymap("n", "<S-Up>", "v<Up>", opts)
 keymap("n", "<S-Down>", "v<Down>", opts)
-
 -- From Insert Mode
 keymap("i", "<S-Left>", "<Esc>v<Left>", opts)
 keymap("i", "<S-Right>", "<Esc>v<Right>", opts)
@@ -61,4 +61,3 @@ keymap("v", "<C-S-Right>", "e", opts)
 keymap("n", "<C-w>", "v<Plug>(expand_region_expand)", { desc = "Expand selection" })
 keymap("v", "<C-w>", "<Plug>(expand_region_expand)", { desc = "Expand selection" })
 keymap("v", "<C-S-w>", "<Plug>(expand_region_shrink)", { desc = "Shrink selection" })
-
