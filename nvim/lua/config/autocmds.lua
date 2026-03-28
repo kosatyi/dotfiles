@@ -8,23 +8,7 @@
 -- e.g. vim.api.nvim_del_augroup_by_name("lazyvim_wrap_spell")
 --
 
--- Prevent from cursor moved above center of screen
 vim.opt.scrolloff = 999
---vim.api.nvim_create_autocmd({ "CursorMoved", "CursorMovedI" }, {
---  callback = function()
---    local win_height = vim.api.nvim_win_get_height(0)
---    local last_line = vim.fn.line("$")
---    local current_line = vim.fn.line(".")
---    local distance_to_end = last_line - current_line
---    local half_screen = math.floor(win_height / 2)
---    if distance_to_end < half_screen then
---      vim.opt_local.scrolloff = distance_to_end
---    else
---      vim.opt_local.scrolloff = 999
---    end
---  end,
---})
-
 
 vim.api.nvim_create_autocmd("BufWritePre", {
   pattern = "*",
@@ -32,3 +16,18 @@ vim.api.nvim_create_autocmd("BufWritePre", {
     require("conform").format({ bufnr = args.buf })
   end,
 })
+
+vim.opt.clipboard = 'unnamedplus'
+
+vim.g.clipboard = {
+  name = 'xclip', -- або 'wl-copy', залежно від вашої системи
+  copy = {
+    ['+'] = 'xclip -selection clipboard',
+    ['*'] = 'xclip -selection primary',
+  },
+  paste = {
+    ['+'] = 'xclip -selection clipboard -o',
+    ['*'] = 'xclip -selection primary -o',
+  },
+  cache_enabled = true, -- це важливо, щоб уникнути постійних запусків
+}
