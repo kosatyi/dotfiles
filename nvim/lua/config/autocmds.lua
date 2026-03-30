@@ -18,7 +18,7 @@ vim.api.nvim_create_autocmd("BufWritePre", {
 })
 
 vim.opt.clipboard = 'unnamedplus'
-
+--- 
 vim.g.clipboard = {
   name = 'xclip', -- або 'wl-copy', залежно від вашої системи
   copy = {
