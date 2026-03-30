@@ -1,3 +1,12 @@
+quick-terminal-position = center
+quick-terminal-animation-duration = 0
+
+keybind = global:super+#=toggle_quick_terminal
+keybind = global:super+'=toggle_quick_terminal
+
+font-family = "JetBrainsMono Nerd Font"
+font-size = 25
+
 keybind = ctrl+shift+[=goto_split:previous
 keybind = ctrl+shift+]=goto_split:next
 

@@ -8,6 +8,8 @@
 -- e.g. vim.api.nvim_del_augroup_by_name("lazyvim_wrap_spell")
 --
 
+vim.opt.shell = "/usr/bin/bash --login"
+
 vim.opt.scrolloff = 999
 
 vim.api.nvim_create_autocmd("BufWritePre", {
@@ -17,17 +19,18 @@ vim.api.nvim_create_autocmd("BufWritePre", {
   end,
 })
 
-vim.opt.clipboard = 'unnamedplus'
---- 
+vim.opt.clipboard = "unnamedplus"
+---
 vim.g.clipboard = {
-  name = 'xclip', -- або 'wl-copy', залежно від вашої системи
+  name = "xclip", -- або 'wl-copy', залежно від вашої системи
   copy = {
-    ['+'] = 'xclip -selection clipboard',
-    ['*'] = 'xclip -selection primary',
+    ["+"] = "xclip -selection clipboard",
+    ["*"] = "xclip -selection primary",
   },
   paste = {
-    ['+'] = 'xclip -selection clipboard -o',
-    ['*'] = 'xclip -selection primary -o',
+    ["+"] = "xclip -selection clipboard -o",
+    ["*"] = "xclip -selection primary -o",
   },
   cache_enabled = true, -- це важливо, щоб уникнути постійних запусків
 }
+
