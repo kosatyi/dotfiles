@@ -1,12 +1,6 @@
 custom-shader = shaders/cursor_smear.glsl
 custom-shader = shaders/glitchy.glsl
 
-quick-terminal-position = center
-quick-terminal-animation-duration = 0
-
-
-keybind = global:f12=toggle_quick_terminal
-
 font-family = "JetBrainsMono Nerd Font"
 font-size = 16
 
@@ -15,11 +9,13 @@ keybind = ctrl+shift+]=goto_split:next
 keybind = shift+home=unbind
 keybind = shift+end=unbind
 
-maximize = true
+
 window-padding-color = extend-always
 window-padding-balance = true
 window-padding-x = 0
 window-padding-y = 0
 window-step-resize = true
 window-decoration = false
+
+maximize = true
 theme = Gruvbox Dark
