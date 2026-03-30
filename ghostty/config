@@ -3,7 +3,9 @@ custom-shader = shaders/glitchy.glsl
 
 quick-terminal-position = center
 quick-terminal-animation-duration = 0
-keybind = global:ctrl+space=toggle_quick_terminal
+
+
+keybind = global:f12=toggle_quick_terminal
 
 font-family = "JetBrainsMono Nerd Font"
 font-size = 16
