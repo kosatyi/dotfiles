@@ -6,6 +6,8 @@ font-size = 16
 
 keybind = ctrl+shift+[=goto_split:previous
 keybind = ctrl+shift+]=goto_split:next
+keybind = shift+home=unbind
+keybind = shift+end=unbind
 
 maximize = true
 window-padding-color = extend-always
