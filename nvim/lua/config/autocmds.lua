@@ -20,9 +20,9 @@ vim.api.nvim_create_autocmd("BufWritePre", {
 })
 
 vim.opt.clipboard = "unnamedplus"
----
+
 vim.g.clipboard = {
-  name = "xclip", -- або 'wl-copy', залежно від вашої системи
+  name = "xclip",
   copy = {
     ["+"] = "xclip -selection clipboard",
     ["*"] = "xclip -selection primary",
@@ -31,6 +31,5 @@ vim.g.clipboard = {
     ["+"] = "xclip -selection clipboard -o",
     ["*"] = "xclip -selection primary -o",
   },
-  cache_enabled = true, -- це важливо, щоб уникнути постійних запусків
+  cache_enabled = true,
 }
-
