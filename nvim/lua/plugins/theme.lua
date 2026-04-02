@@ -1,6 +1,6 @@
 return {
   {
-    "metalelf0/jellybeans-nvim",
+    "ellisonleao/gruvbox.nvim",
     priority = 1000,
     config = true,
     opts = {
@@ -11,7 +11,7 @@ return {
   {
     "LazyVim/LazyVim",
     opts = {
-      colorscheme = "jellybeans-nvim",
+      colorscheme = "gruvbox",
     },
   },
 }
