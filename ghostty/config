@@ -18,4 +18,4 @@ window-step-resize = true
 window-decoration = false
 
 maximize = true
-theme = Gruvbox Dark
+theme = Jellybeans

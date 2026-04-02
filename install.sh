@@ -38,15 +38,12 @@ copy_dot_files() {
 
   if [ ! -d "$SRC" ]; then
     echo "Error: folder $SRC not found"
-    return 1 # Використовуємо return замість exit, щоб не вбивати весь скрипт
+    return 1
   fi
 
-  # Виправлено перевірку BACKUP_FILES
-  if [ "$BACKUP_FILES" = 1 ]; then
-    if [ -d "$DST" ]; then
-      echo "Create backup of existing $NAME config"
-      mv "$DST" "${DST}_backup_$(date +%Y%m%d_%H%M%S)"
-    fi
+  if [ -d "$DST" ]; then
+    echo "Create backup of existing $NAME config"
+    mv "$DST" "${DST}_backup_$(date +%Y%m%d_%H%M%S)"
   fi
 
   echo "Copying $NAME files to $DST"
