@@ -8,9 +8,8 @@ return {
       },
     },
     opts = {
-      -- 1. Поведінка гарячих клавіш як у VS Code
       keymap = {
-        preset = "none", -- Вимикаємо стандартні бінди, щоб не було конфліктів
+        preset = "none",
         ["<C-Space>"] = { "show", "show_documentation", "hide_documentation" },
         ["<Esc>"] = { "hide", "fallback" },
         ["<CR>"] = { "accept", "fallback" },
@@ -28,7 +27,6 @@ return {
             auto_insert = false,
           },
         },
-        -- Показувати документацію до коду автоматично поруч з меню
         documentation = {
           auto_show = true,
           auto_show_delay_ms = 200,
