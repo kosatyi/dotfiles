@@ -1,55 +1,24 @@
 return {
-  "folke/snacks.nvim",
-  priority = 1000,
-  lazy = false,
-  opts = {
-    bigfile = { enabled = true },
-    dashboard = {
-      preset = {
-        header = [[
-███╗   ██╗██╗   ██╗██╗███╗   ███╗
-████╗  ██║██║   ██║██║████╗ ████║
-██╔██╗ ██║██║   ██║██║██╔████╔██║
-██║╚██╗██║╚██╗ ██╔╝██║██║╚██╔╝██║
-██║ ╚████║ ╚████╔╝ ██║██║ ╚═╝ ██║
-╚═╝  ╚═══╝  ╚═══╝  ╚═╝╚═╝     ╚═╝
-        ]],
-      },
-    },
-    explorer = { enabled = true },
-    indent = { enabled = true },
-    input = { enabled = true },
-    picker = {
-      sources = {
-        explorer = {
-          focus = "input",
-          auto_close = true,
-          layout = {
-            preview = false,
-            layout = {
-              box = "vertical",
-              width = 0.5,
-              height = 0.6,
-              { win = "list",  border = "rounded" },
-              { win = "input", height = 1, border = "rounded", title = " Project Explorer ", title_pos = "center" },
+  {
+    "folke/snacks.nvim",
+    opts = {
+        dashboard = {
+            sections = {
+                { section = "header" },
+                { title = false, section = "keys", padding = 1 },
+                { title = "Recent Files", section = "recent_files", cwd = true, limit = 5, padding = 1 },
+                { title = "Projects", section = "projects", limit = 3, padding = 1 },
+                { section = "startup" },
             },
-          },
-          actions = {
-            confirm = function(picker, item)
-              picker:close()
-              if item then
-                vim.cmd("edit " .. item.file)
-              end
-            end,
-          },
+            preset = {
+                header = [[
+▗▖  ▗▖▗▖  ▗▖▗▄▄▄▖▗▖  ▗▖
+▐▛▚▖▐▌▐▌  ▐▌  █  ▐▛▚▞▜▌
+▐▌ ▝▜▌▐▌  ▐▌  █  ▐▌  ▐▌
+▐▌  ▐▌ ▝▚▞▘ ▗▄█▄▖▐▌  ▐▌]]
+            },
         },
-      },
     },
-    notifier = { enabled = true },
-    quickfile = { enabled = true },
-    scope = { enabled = true },
-    scroll = { enabled = false },
-    statuscolumn = { enabled = true },
-    words = { enabled = true },
+    keys = {},
   },
 }

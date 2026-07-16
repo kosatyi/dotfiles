@@ -1,6 +1,7 @@
 #!/bin/bash
 
-SCRIPT_PATH=$(cd "$(dirname "${BASH_SOURCE[0]}")" &>/dev/null && pwd)
+SCRIPT_PATH=$(cd "$(dirname "$0")" && pwd)
+
 
 REPOSITORY_URL="https://github.com/kosatyi/dotfiles"
 SOURCE_DIR="/tmp/dotfiles_$(date +%Y%m%d_%H%M%S)"
@@ -17,6 +18,7 @@ for arg in "$@"; do
 done
 
 if [ "$IS_LOCAL" = 1 ]; then
+  echo "Using path $SCRIPT_PATH"
   SOURCE_DIR="$SCRIPT_PATH"
 else
   echo "Cloning $REPOSITORY_URL into $SOURCE_DIR..."
@@ -31,6 +33,7 @@ else
   fi
 fi
 
+
 copy_dot_files() {
   NAME=$1
   SRC=$2
@@ -41,9 +44,13 @@ copy_dot_files() {
     return 1
   fi
 
-  if [ -d "$DST" ]; then
-    echo "Create backup of existing $NAME config"
-    mv "$DST" "${DST}_backup_$(date +%Y%m%d_%H%M%S)"
+  if [ "$IS_BACKUP" = 1 ]; then
+    if [ -d "$DST" ]; then
+      echo "Create backup of existing $NAME config"
+      mv "$DST" "${DST}_backup_$(date +%Y%m%d_%H%M%S)"
+    fi
+  else
+      rm -r "$DST"
   fi
 
   echo "Copying $NAME files to $DST"
@@ -62,7 +69,6 @@ remove_source_dir() {
   echo "Temporary directory $1 removed."
 }
 
-# Виклик функцій
 copy_dot_files "NeoVim" "$SOURCE_DIR/nvim" "$HOME/.config/nvim"
 copy_dot_files "Ghostty" "$SOURCE_DIR/ghostty" "$HOME/.config/ghostty"
 

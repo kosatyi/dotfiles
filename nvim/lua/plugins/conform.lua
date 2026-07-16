@@ -1,11 +1,21 @@
 return {
-  "stevearc/conform.nvim",
-  opts = {
-    formatters_by_ft = {
-      html = { "prettier" , stop_after_first = true},
-      scss = { "prettier", stop_after_first = true },
-      css = { "prettier", stop_after_first = true },
-      javascript = { "prettier", stop_after_first = true },
-    },
-  },
+   {
+       "stevearc/conform.nvim",
+       optional = true,
+       opts = {
+         formatters_by_ft = {
+           javascript      = { "prettier" },
+           typescript      = { "prettier" },
+           javascriptreact = { "prettier" },
+           typescriptreact = { "prettier" },
+           html            = { "prettier" },
+           css             = { "prettier" },
+           scss            = { "prettier" },
+         },
+         format_on_save = {
+           timeout_ms = 500,
+           lsp_fallback = true,
+         },
+       },
+     },
 }

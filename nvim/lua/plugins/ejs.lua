@@ -1,1 +1,3 @@
-return { "nikvdp/ejs-syntax" }
+return {
+    {'nikvdp/ejs-syntax'} ,
+}

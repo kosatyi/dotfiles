@@ -1,35 +1,37 @@
 -- Autocmds are automatically loaded on the VeryLazy event
 -- Default autocmds that are always set: https://github.com/LazyVim/LazyVim/blob/main/lua/lazyvim/config/autocmds.lua
---
 -- Add any additional autocmds here
 -- with `vim.api.nvim_create_autocmd`
---
 -- Or remove existing autocmds by their group name (which is prefixed with `lazyvim_` for the defaults)
 -- e.g. vim.api.nvim_del_augroup_by_name("lazyvim_wrap_spell")
---
 
-vim.opt.shell = "/usr/bin/bash --login"
+vim.lsp.enable({ "html", "cssls", "eslint", "vtsls" })
 
-vim.opt.scrolloff = 999
+vim.filetype.add({
+  extension = {
+    ejs = "ejs",
+    njk = "nunjucks",
+  },
+})
 
 vim.api.nvim_create_autocmd("BufWritePre", {
-  pattern = "*",
-  callback = function(args)
-    require("conform").format({ bufnr = args.buf })
+  pattern = { "*.html", "*.css", "*.js", "*.ts" },
+  callback = function()
+    vim.lsp.buf.format({ async = false })
   end,
 })
 
-vim.opt.clipboard = "unnamedplus"
-
-vim.g.clipboard = {
-  name = "xclip",
-  copy = {
-    ["+"] = "xclip -selection clipboard",
-    ["*"] = "xclip -selection primary",
-  },
-  paste = {
-    ["+"] = "xclip -selection clipboard -o",
-    ["*"] = "xclip -selection primary -o",
-  },
-  cache_enabled = true,
-}
+vim.api.nvim_create_autocmd("LspAttach", {
+  callback = function(args)
+    local client = vim.lsp.get_client_by_id(args.data.client_id)
+    if not client then return end
+    local has_completion = false
+    pcall(function()
+      has_completion = client:supports_method("textDocument/completion")
+    end)
+    if has_completion then
+      -- Загортаємо в pcall, щоб уникнути рантайм-крешів
+      pcall(vim.lsp.completion.enable, true, client.id)
+    end
+  end,
+})
