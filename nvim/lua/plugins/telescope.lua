@@ -2,7 +2,7 @@ return {
   "nvim-telescope/telescope.nvim",
   keys = {
     {
-      "<leader>f/",
+      "<leader>fr",
       function()
         require("telescope.builtin").current_buffer_fuzzy_find(
           require("telescope.themes").get_dropdown({

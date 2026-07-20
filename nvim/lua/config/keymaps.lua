@@ -3,15 +3,25 @@
 -- Add any additional keymaps here
 local map = vim.keymap.set
 
+map('n', '<Esc>', '<cmd>nohlsearch<CR><Esc>', { desc = 'Clear search highlight' })
+map('n', '<leader>qw', '<Cmd>bdelete<CR>', { silent = true, desc = "Close current tab" })
+map('n', '<leader>qq', '<Cmd>qa!<CR>', { desc = "Force quit without saving" })
+map('n', '<leader>qs', '<Cmd>wqa<CR>', { desc = "Quit And Save" })
 
-map({'n', 'i', 'v'}, '<leader>qw', '<Cmd>bdelete<CR>', { silent = true, desc = "Close current tab" })
-map({'n', 'i', 'v'}, '<leader>qq', '<Cmd>qa!<CR>', { desc = "Force quit without saving" })
-map({ 'n', 'i', 'v' }, '<leader>qs', '<Cmd>wqa<CR>', { desc = "Quit And Save" })
+map('n', '<Tab>', 'w', { desc = 'Move cursor forward to the next word' })
+map('n', '<S-Tab>', 'b', { desc = 'Move cursor backward to the previous word' })
 
+-- (Cut)
+map({'n', 'v'}, '<C-x>', '"+x', { desc = 'Cut to clipboard' })
+map('i', '<C-x>', '<C-O>"+x', { desc = 'Cut to clipboard' })
 
--- Clipboard operations (Copy, Cut, Paste)
-map('v', '<C-c>', '"+y', { desc = "Copy" })
-map('v', '<C-x>', '"+x', { desc = "Cut" })
+-- (Copy)
+map({'n', 'v'}, '<C-c>', '"+y', { desc = 'Copy to clipboard' })
+map('i', '<C-c>', '<C-O>"+y', { desc = 'Copy to clipboard' })
+
+-- (Paste)
+map({'n', 'v'}, '<C-v>', '"+p', { desc = 'Paste from clipboard' })
+map('i', '<C-v>', '<C-O>"+P', { desc = 'Paste from clipboard' })
 
 
 map({'n', 'i', 'v'}, '<C-v>', function()
@@ -22,13 +32,16 @@ map({'n', 'i', 'v'}, '<C-v>', function()
     end
 end, { desc = "Paste" })
 
+map('n', '<C-n>', '<cmd>cnext<CR>zz', { desc = 'Next search result' })
+map('n', '<C-p>', '<cmd>cprev<CR>zz', { desc = 'Previous search result' })
+
 -- Undo and Redo actions
 map({'n', 'i', 'v'}, '<C-z>', '<Cmd>undo<CR>', { desc = "Undo" })
 map({'n', 'i', 'v'}, '<C-y>', '<Cmd>redo<CR>', { desc = "Redo" })
 
 -- File operations and Select All
--- map({'n', 'i', 'v'}, '<C-s>', '<Cmd>w<CR>', { desc = "Save file" })
--- map({'n', 'i', 'v'}, '<C-a>', 'ggVG', { desc = "Select all" })
+map({'n', 'i', 'v'}, '<C-s>', '<Cmd>w<CR>', { desc = "Save file" })
+map({'n', 'i', 'v'}, '<C-a>', 'ggVG', { desc = "Select all" })
 
 -- Move lines up/down (Alt + Arrow Keys)
 map('n', '<A-Down>', ':m .+1<CR>==', { silent = true, desc = "Move line down" })
@@ -50,7 +63,13 @@ map('v', '<S-A-Up>', ":co '<-1<CR>gv", { silent = true, desc = "Duplicate select
 map({'n', 'v', 'i'}, '<C-PageUp>', '<Cmd>bprevious<CR>', { desc = "Previous buffer" })
 map({'n', 'v', 'i'}, '<C-PageDown>', '<Cmd>bnext<CR>', { desc = "Next buffer" })
 
--- Word navifation
+-- Split navigation (Tab + Left/Right Arrows)
+map('n', "<leader><Left>", "<C-w>h", { desc = "Go to Left Split" })
+map('n', "<leader><Down>", "<C-w>j", { desc = "Go to Lower Split" })
+map('n', "<leader><Up>", "<C-w>k", { desc = "Go to Upper Split" })
+map('n', "<leader><Right>", "<C-w>l", { desc = "Go to Right Split" })
+
+-- Word navigation
 map({'n', 'v'}, '<C-Right>', 'w', { desc = "Move forward by word" })
 map({'n', 'v'}, '<C-Left>', 'b', { desc = "Move backward by word" })
 map('i', '<C-Right>', '<Action>(visual mode)<C-o>w', { remap = true })
@@ -98,3 +117,43 @@ map('v', '<BS>', '"_d', { desc = "Delete selection with Backspace" })
 map('i', '<C-H>', '<C-w>', { desc = "Delete word backward" })
 map('i', '<C-Backspace>', '<C-w>', { desc = "Delete word backward" })
 map('c', '<C-H>', '<C-w>', { desc = "Delete word backward in command line" })
+
+map('n', '<Del>', function()
+  if vim.api.nvim_get_current_line():match('^%s*$') ~= nil then
+    return 'dd'
+  else
+    return 'x'
+  end
+end, { expr = true, desc = 'Delete empty line or character forward' })
+map('n', '<BS>', 'X', { desc = 'Delete character backward (VS Code style)' })
+map('n', '<C-Del>', 'dw', { desc = 'Delete word forward (VS Code style)' })
+map('n', '<C-BS>', 'db', { desc = 'Delete word backward (VS Code style)' })
+
+
+
+-- local opts = { expr = true, silent = true }
+-- vim.keymap.set("i", "<Tab>", function()
+--   if vim.fn.pumvisible() == 1 then
+--     return "<C-n>"
+--   else
+--     return "<Tab>"
+--   end
+-- end, opts)
+
+-- vim.keymap.set("i", "<S-Tab>", function()
+--   if vim.fn.pumvisible() == 1 then
+--     return "<C-p>"
+--   else
+--     return "<S-Tab>"
+--   end
+-- end, opts)
+
+-- -- <C-Space> для примусового виклику меню, якщо воно зникло
+-- vim.keymap.set("i", "<C-Space>", function()
+--   if vim.fn.pumvisible() == 0 then
+--     vim.lsp.completion.get()
+--   end
+-- end, { silent = true })
+
+-- vim.keymap.set("i", "<CR>", [[pumvisible() == 1 and "<C-y>" or "<CR>"]], { expr = true, silent = true })
+-- vim.keymap.set("i", "<C-e>", "<Cmd>pumclose<CR>", { silent = true })

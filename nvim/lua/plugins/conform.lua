@@ -8,9 +8,13 @@ return {
            typescript      = { "prettier" },
            javascriptreact = { "prettier" },
            typescriptreact = { "prettier" },
+           vue             = { "prettier" },
+           json            = { "prettier" },
            html            = { "prettier" },
            css             = { "prettier" },
            scss            = { "prettier" },
+           yaml            = { "prettier" },
+           jinja           = { "djlint" },
          }
        },
      },

@@ -2,6 +2,9 @@ return {
   {
     "folke/snacks.nvim",
     opts = {
+        explorer = {
+           enabled = false,
+        },
         dashboard = {
             sections = {
                 { section = "header" },
@@ -18,6 +21,11 @@ return {
             },
         },
     },
-    keys = {},
+    keys = {
+        { "<leader>e", false },  -- Звичайний провідник (root dir)
+        { "<leader>E", false },  -- Провідник у поточному cwd
+        { "<leader>fe", false }, -- Альтернативна комбінація пошуку файлів
+        { "<leader>fE", false }, -- Альтернативна комбінація пошуку файлів
+    },
   },
 }
