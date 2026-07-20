@@ -2,9 +2,8 @@ return {
   {
     "folke/snacks.nvim",
     opts = {
-        explorer = {
-           enabled = false,
-        },
+        scroll = { enabled = false },
+        explorer = { enabled = false },
         dashboard = {
             sections = {
                 { section = "header" },

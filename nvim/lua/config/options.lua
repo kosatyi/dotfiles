@@ -37,7 +37,13 @@ vim.opt.sidescrolloff = 8
 vim.opt.fileencodings = "utf-8,ucs-bom,gb18030,gbk,gb2312,cp936" -- the encoding written to a file
 vim.opt.encoding = "utf-8"
 vim.opt.virtualedit = 'block'
-vim.opt.winbar = "%= %f %m %="
+--- vim.opt.winbar = "%= %f %m %="
+vim.opt.winbar = "%f %m %="
+
+vim.api.nvim_set_hl(0, 'WinbarFile', { fg = '#A3BE8C', bg = '#3B4252', bold = true })
+vim.api.nvim_set_hl(0, 'WinbarPath', { fg = '#E5E9F0', bg = '#3B4252' })
+vim.api.nvim_set_hl(0, 'WinbarModified', { fg = '#BF616A', bg = '#3B4252', bold = true })
+vim.api.nvim_set_hl(0, 'WinbarSep', { fg = '#81A1C1', bg = '#3B4252' })
 
 -- vim.opt.completeopt = { "menuone", "noselect" }                 -- mostly just for cmp
 -- vim.opt.autocomplete = true

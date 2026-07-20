@@ -69,6 +69,17 @@ map('n', "<leader><Down>", "<C-w>j", { desc = "Go to Lower Split" })
 map('n', "<leader><Up>", "<C-w>k", { desc = "Go to Upper Split" })
 map('n', "<leader><Right>", "<C-w>l", { desc = "Go to Right Split" })
 
+map("n", "<leader>rw", [[:%s/\<<C-r><C-w>\>/]], { desc = "Change word under cursor" })
+map("n", "<leader>re", [[:%s/]], { desc = "Global replacement (%s/)" })
+
+-- Scroll screen up/down (like in Zed) in Normal mode
+map("n", "<C-Up>", "<C-y>", { desc = "Scroll Line Up" })
+map("n", "<C-Down>", "<C-e>", { desc = "Scroll Line Down" })
+
+-- Scroll screen up/down in Insert mode
+map("i", "<C-Up>", "<C-x><C-y>", { desc = "Scroll Line Up" })
+map("i", "<C-Down>", "<C-x><C-e>", { desc = "Scroll Line Down" })
+
 -- Word navigation
 map({'n', 'v'}, '<C-Right>', 'w', { desc = "Move forward by word" })
 map({'n', 'v'}, '<C-Left>', 'b', { desc = "Move backward by word" })
@@ -128,32 +139,3 @@ end, { expr = true, desc = 'Delete empty line or character forward' })
 map('n', '<BS>', 'X', { desc = 'Delete character backward (VS Code style)' })
 map('n', '<C-Del>', 'dw', { desc = 'Delete word forward (VS Code style)' })
 map('n', '<C-BS>', 'db', { desc = 'Delete word backward (VS Code style)' })
-
-
-
--- local opts = { expr = true, silent = true }
--- vim.keymap.set("i", "<Tab>", function()
---   if vim.fn.pumvisible() == 1 then
---     return "<C-n>"
---   else
---     return "<Tab>"
---   end
--- end, opts)
-
--- vim.keymap.set("i", "<S-Tab>", function()
---   if vim.fn.pumvisible() == 1 then
---     return "<C-p>"
---   else
---     return "<S-Tab>"
---   end
--- end, opts)
-
--- -- <C-Space> для примусового виклику меню, якщо воно зникло
--- vim.keymap.set("i", "<C-Space>", function()
---   if vim.fn.pumvisible() == 0 then
---     vim.lsp.completion.get()
---   end
--- end, { silent = true })
-
--- vim.keymap.set("i", "<CR>", [[pumvisible() == 1 and "<C-y>" or "<CR>"]], { expr = true, silent = true })
--- vim.keymap.set("i", "<C-e>", "<Cmd>pumclose<CR>", { silent = true })
