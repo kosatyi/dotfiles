@@ -139,3 +139,12 @@ end, { expr = true, desc = 'Delete empty line or character forward' })
 map('n', '<BS>', 'X', { desc = 'Delete character backward (VS Code style)' })
 map('n', '<C-Del>', 'dw', { desc = 'Delete word forward (VS Code style)' })
 map('n', '<C-BS>', 'db', { desc = 'Delete word backward (VS Code style)' })
+
+vim.keymap.set("n", "<leader>wk", function()
+  local ok, wk = pcall(require, "which-key")
+  if ok then
+    wk.toggle()
+  else
+    vim.notify("Which-key not found", vim.log.levels.ERROR)
+  end
+end, { desc = "Toggle Which-Key" })

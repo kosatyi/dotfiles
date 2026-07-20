@@ -13,11 +13,8 @@ return {
       vim.api.nvim_create_autocmd("FileType", {
         pattern = { "nunjucks", "html" },
         callback = function()
-          -- При введенні {% створює {%  %} та ставить курсор посередині
           vim.keymap.set("i", "{%", "{%  %}<Left><Left><Left>", { buffer = true })
-          -- При введенні {{ створює {{  }} та ставить курсор посередині
           vim.keymap.set("i", "{{", "{{  }}<Left><Left><Left>", { buffer = true })
-          -- При введенні {# створює {#  #} для коментарів
           vim.keymap.set("i", "{#", "{#  #}<Left><Left><Left>", { buffer = true })
         end,
       })
