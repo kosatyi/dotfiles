@@ -21,10 +21,10 @@ return {
         },
     },
     keys = {
-        { "<leader>e", false },  -- Звичайний провідник (root dir)
-        { "<leader>E", false },  -- Провідник у поточному cwd
-        { "<leader>fe", false }, -- Альтернативна комбінація пошуку файлів
-        { "<leader>fE", false }, -- Альтернативна комбінація пошуку файлів
+        { "<leader>e", false },
+        { "<leader>E", false },
+        { "<leader>fe", false },
+        { "<leader>fE", false },
     },
   },
 }

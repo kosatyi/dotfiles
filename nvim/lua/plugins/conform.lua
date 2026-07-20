@@ -15,7 +15,11 @@ return {
            scss            = { "prettier" },
            yaml            = { "prettier" },
            jinja           = { "djlint" },
-         }
+         },
+         formatters = {
+             prettier = {},
+             djlint = {},
+         },
        },
      },
 }
