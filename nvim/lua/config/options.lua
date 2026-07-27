@@ -26,7 +26,7 @@ vim.opt.cursorline = true                              -- highlight the current 
 vim.opt.number = false                                 -- disable numbered lines
 vim.opt.relativenumber = true
 --vim.opt.colorcolumn = '80,100,120'
-vim.opt.laststatus = 3
+---vim.opt.laststatus = 3
 vim.opt.cmdheight = 1
 vim.opt.showcmd = true
 vim.opt.ruler = true
@@ -46,3 +46,9 @@ vim.diagnostic.config({
   },
   severity_sort = true, -- Сортує помилки за важливістю
 })
+
+vim.opt.shortmess:append("I")
+vim.opt.laststatus = 0
+vim.opt.showmode = false      -- Don't flash "-- INSERT/NORMAL --" mode lines
+vim.opt.ruler = false         -- Prevent flashing line/col coordinates at bottom right
+vim.opt.fillchars = { eob = " " }

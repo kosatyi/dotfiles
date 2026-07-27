@@ -6,7 +6,6 @@ return { {
     bufdelete = { enabled = true }, -- Keep bufdelete if you still want to safely close buffers
     words = { enabled = true },
     bufferline = { enabled = false },
-    scroll = { enabled = false },
     picker = {
       sources = {
         explorer = {
