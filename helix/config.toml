@@ -1,0 +1,111 @@
+theme = "onedark"
+
+[editor]
+line-number = "relative"
+mouse = false
+idle-timeout = 0
+
+[editor.cursor-shape]
+insert = "bar"
+normal = "block"
+select = "underline"
+
+[editor.file-picker]
+hidden = false
+
+[keys.insert]
+"C-s" = [":write", "normal_mode", "insert_mode"]
+# --- Navigation ---
+"C-up" = "move_line_up"         # Move line up (Zed's Alt-Up equivalent)
+"C-down" = "move_line_down"     # Move line down (Zed's Alt-Down equivalent)
+"A-left" = "move_prev_word_start" # Move cursor word-by-word
+"A-right" = "move_next_word_end"
+# --- Text Editing Actions ---
+"C-/" = "toggle_comments"       # Toggle line comment (Zed style)
+"C-x" = "kill_to_line_end"       # Mimics quick line-cut
+"C-z" = "undo"
+"C-y" = "redo"
+# --- Selection Modifiers ---
+"S-left" = "extend_char_left"
+"S-right" = "extend_char_right"
+"S-up" = "extend_line_up"
+"S-down" = "extend_line_down"
+# --- File & Tab Management ---
+"C-p" = "file_picker"           # Zed's Project Search / Finder
+"C-b" = "buffer_picker"         # Switch open files quickly
+# Escape hatch back to normal mode if needed
+"esc" = "normal_mode"
+[keys.normal]
+"C-s" = ":write"
+"ins" = "insert_mode"
+"C-p" = "file_picker"
+"C-/" = "toggle_comments"
+"C-z" = "undo"
+"C-y" = "redo"
+"A-S-up" = ["extend_to_line_bounds", "delete_selection", "move_line_up", "paste_before"]
+"A-S-down" = ["extend_to_line_bounds", "delete_selection", "paste_after"]
+#
+"esc" = ["collapse_selection", "keep_primary_selection"]
+"C-h" = ["select_all", "select_regex"]
+# Delete key removes the current selection
+"del" = "delete_selection"
+# Shift + Arrows to select text
+"S-left" = ["extend_char_left", "select_mode"]
+"S-right" = ["extend_char_right", "select_mode"]
+"S-up" = ["extend_line_up", "select_mode"]
+"S-down" = ["extend_line_down", "select_mode"]
+# Ctrl + Shift + Arrows to select whole words
+"C-S-left" = ["extend_prev_word_start", "select_mode"]
+"C-S-right" = ["extend_next_word_end", "select_mode"]
+# Shift + Home / End to select to start / end of line
+"S-home" = ["select_mode", "goto_line_start"]
+"S-end" = ["select_mode", "goto_line_end"]
+# Normal arrows clear selection and move
+"left" = ["collapse_selection", "move_char_left"]
+"right" = ["collapse_selection", "move_char_right"]
+"up" = ["collapse_selection", "move_visual_line_up"]
+"down" = ["collapse_selection", "move_visual_line_down"]
+# Ctrl + Arrows clear selection and move by word
+"C-left" = ["collapse_selection", "move_prev_word_start"]
+"C-right" = ["collapse_selection", "move_next_word_end"]
+# Home / End clear selection and move to start / end of line
+"home" = ["collapse_selection", "goto_line_start"]
+"end" = ["collapse_selection", "goto_line_end"]
+
+[keys.select]
+"ins" = "insert_mode"
+# Move active selection blocks up or down using Alt + Arrows
+"A-S-up" = ["extend_to_line_bounds", "delete_selection", "move_line_up", "paste_before"]
+"A-S-down" = ["extend_to_line_bounds", "delete_selection", "paste_after"]
+#
+"esc" = "normal_mode"
+# Quick search and replace inside an active visual selection
+"C-h" = "select_regex"
+"del" = ["delete_selection", "normal_mode"]
+# Continuous selection with Shift + Arrows
+"S-left" = "extend_char_left"
+"S-right" = "extend_char_right"
+"S-up" = "extend_line_up"
+"S-down" = "extend_line_down"
+
+# Continuous selection with Ctrl + Shift + Arrows
+"C-S-left" = "extend_prev_word_start"
+"C-S-right" = "extend_next_word_end"
+
+# Continuous selection with Shift + Home / End
+"S-home" = "goto_line_start"
+"S-end" = "goto_line_end"
+
+# Regular arrows drop selection and return to normal mode
+"left" = ["collapse_selection", "normal_mode", "move_char_left"]
+"right" = ["collapse_selection", "normal_mode", "move_char_right"]
+"up" = ["collapse_selection", "normal_mode", "move_visual_line_up"]
+"down" = ["collapse_selection", "normal_mode", "move_visual_line_down"]
+
+# Regular Ctrl + Arrows drop selection and return to normal mode
+"C-left" = ["collapse_selection", "normal_mode", "move_prev_word_start"]
+"C-right" = ["collapse_selection", "normal_mode", "move_next_word_end"]
+
+# Regular Home / End drop selection and return to normal mode
+"home" = ["collapse_selection", "normal_mode", "goto_line_start"]
+"end" = ["collapse_selection", "normal_mode", "goto_line_end"]
