@@ -2,7 +2,7 @@ custom-shader = shaders/cursor_smear.glsl
 custom-shader = shaders/glitchy.glsl
 
 font-family = "JetBrainsMono Nerd Font"
-font-size = 16
+font-size = 14
 
 keybind = ctrl+shift+[=goto_split:previous
 keybind = ctrl+shift+]=goto_split:next
@@ -17,7 +17,7 @@ window-padding-y = 0
 window-step-resize = true
 ##window-decoration = false
 maximize = true
-theme = Catppuccin Mocha
+theme = TokyoNight
 gtk-titlebar = false
 #Core Quick Terminal Settings
 # keybind = global:ctrl+shift+enter=toggle_quick_terminal

@@ -1,5 +1,10 @@
-return {
-  { "akinsho/bufferline.nvim", enabled = false },
-  { "nvim-neo-tree/neo-tree.nvim", enabled = false },
-  { "karb94/neoscroll.nvim", enabled = false },
-}
+return { {
+  'akinsho/bufferline.nvim',
+  enabled = false,
+}, {
+  'nvim-neo-tree/neo-tree.nvim',
+  enabled = false,
+}, {
+  'karb94/neoscroll.nvim',
+  enabled = false,
+} }

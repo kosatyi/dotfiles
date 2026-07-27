@@ -1,0 +1,16 @@
+{
+  "plugins": ["@prettier/plugin-lua"],
+  "overrides": [
+    {
+      "files": "*.lua",
+      "options": {
+        "printWidth": 120,
+        "tabWidth": 2,
+        "useTabs": false,
+        "semi": false,
+        "singleQuote": true,
+        "bracketSpacing": true
+      }
+    }
+  ]
+}

@@ -1,6 +1,8 @@
- vim.opt.backup = false                                 -- creates a backup file
+vim.opt.backup = false                                 -- creates a backup file
 vim.opt.writebackup = false                            -- if a file is being edited by another program (or was written to file while editing with another program), it is not allowed to be edited
-vim.opt.clipboard:append({ "unnamed", "unnamedplus" }) -- allows neovim to access the system clipboard
+vim.opt.clipboard = "unnamedplus"
+vim.opt.clipboard = ""
+vim.opt.title = false
 vim.opt.conceallevel = 0                               -- so that `` is visible in markdown files
 vim.opt.hlsearch = true                                -- highlight all matches on previous search pattern
 vim.opt.ignorecase = true                              -- ignore case in search patterns
@@ -23,18 +25,24 @@ vim.opt.tabstop = 2                                    -- insert 2 spaces for a 
 vim.opt.cursorline = true                              -- highlight the current line
 vim.opt.number = false                                 -- disable numbered lines
 vim.opt.relativenumber = true
---- vim.opt.colorcolumn = '80,100,120'
+--vim.opt.colorcolumn = '80,100,120'
 vim.opt.laststatus = 3
 vim.opt.cmdheight = 1
----vim.opt.showcmd = true
+vim.opt.showcmd = true
 vim.opt.ruler = true
 vim.opt.numberwidth = 2                                          -- set number column width to 2 {default 4}
 vim.opt.signcolumn = "yes"                                       -- always show the sign column
 vim.opt.wrap = false                                             -- wrap lines, display lines as one long line
 vim.opt.scrolloff = 8                                            -- is one of my fav
 vim.opt.sidescrolloff = 8
---- vim.opt.guifont = "monospace:h17"                                -- the font used in graphical neovim applications
 vim.opt.fileencodings = "utf-8,ucs-bom,gb18030,gbk,gb2312,cp936" -- the encoding written to a file
 vim.opt.encoding = "utf-8"
 vim.opt.virtualedit = 'block'
---- vim.opt.winbar = " %f %m %="
+vim.diagnostic.config({
+  virtual_text = {
+    spacing = 4,
+    source = "if_many",
+    prefix = "●",
+  },
+  severity_sort = true, -- Сортує помилки за важливістю
+})
