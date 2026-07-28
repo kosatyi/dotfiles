@@ -3,15 +3,14 @@ return { {
   priority = 1000,
   lazy = false,
   opts = {
-    bufdelete = { enabled = true }, -- Keep bufdelete if you still want to safely close buffers
-    words = { enabled = true },
-    bufferline = { enabled = false },
     picker = {
       sources = {
         explorer = {
           layout = {
-            width = 20,
-            auto_hide = { 'input' }, -- Приховує рядок пошуку за замовчуванням
+            layout = {
+              width = 30,
+            },
+            auto_hide = { 'input' },
           },
         },
       },
