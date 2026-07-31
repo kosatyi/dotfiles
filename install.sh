@@ -9,7 +9,7 @@ SOURCE_DIR="/tmp/dotfiles_$(date +%Y%m%d_%H%M%S)"
 BACKUP_FILES=0
 IS_LOCAL=0
 
-# Обробка аргументів
+# Handle arguments
 for arg in "$@"; do
   case "$arg" in
   --local) IS_LOCAL=1 ;;
