@@ -71,6 +71,7 @@ remove_source_dir() {
 
 copy_dot_files "NeoVim" "$SOURCE_DIR/nvim" "$HOME/.config/nvim"
 copy_dot_files "Ghostty" "$SOURCE_DIR/ghostty" "$HOME/.config/ghostty"
+copy_dot_files "Helix" "$SOURCE_DIR/helix" "$HOME/.config/helix"
 
 if [ "$IS_LOCAL" = 0 ]; then
   remove_source_dir "$SOURCE_DIR"
