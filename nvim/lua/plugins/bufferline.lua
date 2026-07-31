@@ -1,56 +1,53 @@
 return {
   {
         "akinsho/bufferline.nvim",
-        config = function()
-          local bufferline = require('bufferline')
-            bufferline.setup({
-              options = {
-                 style_preset = require("bufferline").style_preset.no_italic,
-                 separator_style = { "", "" },
-                 indicator = { icon = '', style = "none" }
+        event = 'VeryLazy',
+          opts = {
+            options = {
+               style_preset = require("bufferline").style_preset.no_italic,
+               separator_style = { "", "" },
+               indicator = { icon = '', style = "none" }
+            },            highlights = {
+              buffer_visible = {
+                italic = false,
               },
-              highlights = {
-                buffer_visible = {
-                  italic = false,
-                },
-                buffer_selected = {
-                  italic = false,
-                },
-                modified = {
-                  italic = false,
-                },
-                modified_visible = {
-                  italic = false,
-                },
-                modified_selected = {
-                  italic = false,
-                },
-                duplicate = {
-                  italic = false,
-                },
-                duplicate_visible = {
-                  italic = false,
-                },
-                duplicate_selected = {
-                   italic = false,
-                },
-                tab_separator = {
-                  bg = '#ffffff'
-                },
-                separator = {
-                  fg = "none",
-                  bg = "none",
-                },
-                separator_visible = {
-                  fg = "none",
-                  bg = "none",
-                },
-                separator_selected = {
-                      fg = "none",
-                      bg = "none",
-                },
+              buffer_selected = {
+                italic = false,
               },
-         })
-    end
+              modified = {
+                italic = false,
+              },
+              modified_visible = {
+                italic = false,
+              },
+              modified_selected = {
+                italic = false,
+              },
+              duplicate = {
+                italic = false,
+              },
+              duplicate_visible = {
+                italic = false,
+              },
+              duplicate_selected = {
+                 italic = false,
+              },
+              tab_separator = {
+                bg = '#ffffff'
+              },
+              separator = {
+                fg = "none",
+                bg = "none",
+              },
+              separator_visible = {
+                fg = "none",
+                bg = "none",
+              },
+              separator_selected = {
+                    fg = "none",
+                    bg = "none",
+              },
+            },
+       },
   },
 }
