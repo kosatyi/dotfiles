@@ -4,6 +4,12 @@ return {
     priority = 1000,
     lazy = false,
     opts = {
+      explorer = { enabled = false },
+      picker = {
+        sources = {
+          explorer = { enabled = false },
+      },
+      },
       dashboard = {
         sections = {
           {

@@ -18,7 +18,7 @@ require('lazy').setup({
   spec = { {
     'LazyVim/LazyVim',
     import = 'lazyvim.plugins',
-  }, { import = 'plugins' } },
+  }, { import = 'lazyvim.plugins.extras.editor.neo-tree' },{ import = 'plugins' } },
   defaults = {
     lazy = false,
     version = false,
