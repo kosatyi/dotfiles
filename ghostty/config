@@ -19,11 +19,3 @@ window-step-resize = true
 maximize = true
 theme = TokyoNight
 gtk-titlebar = false
-#Core Quick Terminal Settings
-# keybind = global:ctrl+shift+enter=toggle_quick_terminal
-# quick-terminal-position = top
-# quick-terminal-size = 40%
-# quick-terminal-animation-duration = 0.2
-
-shell-integration = bash
-shell-integration-features = true
